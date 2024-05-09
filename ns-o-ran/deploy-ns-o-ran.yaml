@@ -21,5 +21,7 @@ spec:
       containers:
       - image: ns3
         name: ns3
+        imagePullPolicy: Never
+        command: ["sleep", "infinity"]
         resources: {}
 status: {}
