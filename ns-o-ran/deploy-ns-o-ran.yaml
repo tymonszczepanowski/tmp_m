@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ns-o-ran
+  name: ns-o-ran
+  namespace: ricplt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ns-o-ran
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ns-o-ran
+    spec:
+      containers:
+      - image: ns3
+        name: ns3
+        resources: {}
+status: {}
