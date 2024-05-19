@@ -1,6 +1,5 @@
 #!/bin/env bash
-set -xe
-set -o pipefail
+set -eo pipefail
 
 if [[ "$1" == "routes" || "$1" == "r" ]]; then
     SVC=service-ricplt-rtmgr-http
@@ -23,4 +22,5 @@ PORT=$(kubectl get svc $SVC -n $NS -o json \
     | jq .spec.ports[].port \
     | tr -d '"')
 
+echo "Sending request to ${SVC} at ${IP}:${PORT}${ENDPOINT}"
 curl "http://${IP}:${PORT}${ENDPOINT}" | jq .
