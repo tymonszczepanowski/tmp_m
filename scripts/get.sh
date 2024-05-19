@@ -1,15 +1,17 @@
 #!/bin/env bash
 set -eo pipefail
 
+NS="ricplt"
 if [[ "$1" == "routes" || "$1" == "r" ]]; then
     SVC=service-ricplt-rtmgr-http
-    NS=ricplt
     ENDPOINT="/ric/v1/getdebuginfo"
     echo "Get routes, IP: ${IP}, PORT: {3800}, ENDPOINT: ${ENDPOINT}"
 elif [[ "$1" == "xapps" || "$1" == "x" ]]; then
     SVC=service-ricplt-appmgr-http
-    NS=ricplt
     ENDPOINT="/ric/v1/xapps"
+elif [[ "$1" == "subscriptions" || "$1" == "s" ]]; then
+    SVC=service-ricplt-submgr-http
+    ENDPOINT="/ric/v1/subscriptions"
 else
     echo "This script needs an argument. Possible arguments: [r]outes, [x]apps"
     return 1
