@@ -29,8 +29,8 @@ curl -X "$METHOD" \
     -H 'Content-Type: application/json' \
     -d '[
     {
-      "TargetEndPoint": service-ricxapp-scp-kpimon-rmr.ricxapp:4560,
-      "MessageType: 12050,
+      "TargetEndPoint": "service-ricxapp-scp-kpimon-rmr.ricxapp:4560",
+      "MessageType": 12050,
       "SenderEndPoint": "",
       "SubscriptionID": 1
     }
